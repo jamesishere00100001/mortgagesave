@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mortgage Overpayment Calculator</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Free UK mortgage overpayment calculator. See your monthly payment on your deal and after it reverts to the SVR, and how much interest and time a monthly overpayment saves. Nothing you enter leaves your browser.">
+<meta name="apple-itunes-app" content="app-id=6467675017">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mortgage Overpayment Calculator – Mortgage Save">
+<meta property="og:description" content="See how much interest and how many years a monthly overpayment could save on your UK mortgage.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Mortgage Save overpayment calculator",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
+      "description": "Calculate UK mortgage payments across a fixed deal and the standard variable rate, and see what monthly overpayments save."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How much can I overpay my mortgage without a penalty?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most UK lenders let you overpay up to 10% of the balance each year during a fixed or tracker deal without an early repayment charge. Check your mortgage offer, because some lenders use a different limit or measure it differently." } },
+        { "@type": "Question", "name": "What is the standard variable rate (SVR)?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The SVR is the rate your lender moves you to when your deal ends. It is usually much higher than deal rates, which is why most people remortgage before their deal finishes." } },
+        { "@type": "Question", "name": "Is it better to overpay or save?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Overpaying gives a guaranteed return equal to your mortgage rate. Savings can beat it when the after-tax savings rate is higher, and an emergency fund should usually come first because overpayments are hard to get back." } }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Layout: one calm column on phones; inputs left and live results right from 900px. Brand palette from the Mortgage Save support site. */
+:root {
+  --bg: #F2F2FA;
+  --surface: #FFFFFF;
+  --ink: #1A1840;
+  --muted: #5E5B83;
+  --line: #E1E0F0;
+  --brand: #16133B;
+  --brand-fg: #E8E6FF;
+  --accent: #5955D8;
+  --accent-soft: #EBEAFD;
+  --save: #12805C;
+  --save-soft: #E3F4EC;
+  --warn: #9A5B00;
+  --warn-soft: #FFF3DC;
+  --chart-base: #A9A6CC;
+  --font-display: "Manrope", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 18px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E0C24; --surface: #18163A; --ink: #E8E6FF; --muted: #A3A0CC; --line: #2C2A55;
+    --brand: #0A0820; --brand-fg: #E8E6FF; --accent: #8E8BF5; --accent-soft: #26245A;
+    --save: #4CC79A; --save-soft: #12332A; --warn: #F2B65C; --warn-soft: #3A2C12; --chart-base: #4E4B82;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E0C24; --surface: #18163A; --ink: #E8E6FF; --muted: #A3A0CC; --line: #2C2A55;
+  --brand: #0A0820; --brand-fg: #E8E6FF; --accent: #8E8BF5; --accent-soft: #26245A;
+  --save: #4CC79A; --save-soft: #12332A; --warn: #F2B65C; --warn-soft: #3A2C12; --chart-base: #4E4B82;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 16px/1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+header.top { background: var(--brand); color: var(--brand-fg); }
+header.top .wrap { padding-block: 22px 72px; display: grid; gap: 28px; }
+.brandline { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 17px/1 var(--font-display); color: var(--brand-fg); text-decoration: none; }
+.brand-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(140deg, #6E6AF0, #3D39B8); display: grid; place-items: center; }
+.store-link { color: var(--brand-fg); font-size: 14px; opacity: .85; text-decoration: none; border: 1px solid rgba(232,230,255,.3); border-radius: 999px; padding: 7px 14px; }
+.store-link:hover { opacity: 1; border-color: rgba(232,230,255,.6); }
+h1 { font: 800 clamp(30px, 5vw, 46px)/1.08 var(--font-display); letter-spacing: -0.02em; margin: 0; text-wrap: balance; max-width: 18ch; }
+.lede { margin: 10px 0 0; max-width: 58ch; color: rgba(232,230,255,.72); font-size: 17px; }
+
+main .wrap { margin-top: -44px; padding-block: 0 56px; }
+.calc { display: grid; gap: 18px; grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 900px) { .calc { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; min-width: 0; }
+.panel h2 { font: 700 13px/1 var(--font-body); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 16px; }
+.inputs { display: grid; gap: 16px; }
+@media (min-width: 900px) { .inputs-panel { position: sticky; top: calc(16px + env(safe-area-inset-top, 0px)); } }
+.group { display: grid; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line); }
+.group:first-of-type { border-top: 0; padding-top: 0; }
+.group-title { font-weight: 600; font-size: 14px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.field { display: grid; gap: 6px; min-width: 0; }
+.field label { font-size: 13.5px; font-weight: 500; color: var(--muted); }
+.box { display: flex; align-items: center; background: var(--bg); border: 1.5px solid var(--line); border-radius: 12px; transition: border-color .15s; }
+.box:focus-within { border-color: var(--accent); }
+.box span { padding: 0 0 0 12px; color: var(--muted); font-weight: 500; }
+.box span.after { padding: 0 12px 0 0; }
+.box input { flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); font: 600 17px/1 var(--font-body); padding: 12px; font-variant-numeric: tabular-nums; outline: none; }
+.field.bad .box { border-color: #D2433E; }
+.err { color: #D2433E; font-size: 13px; }
+.err:empty { display: none; }
+.hint { font-size: 13px; color: var(--muted); }
+input[type="range"] { width: 100%; accent-color: var(--accent); margin: 2px 0 0; }
+.range-ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.example-note { font-size: 13px; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+:focus-visible { outline: 2.5px solid var(--accent); outline-offset: 2px; }
+
+.results { display: grid; gap: 18px; min-width: 0; }
+.headline { display: grid; gap: 4px; }
+.headline .k { font-size: 14px; color: var(--muted); }
+.headline .v { font: 800 clamp(34px, 6vw, 48px)/1.05 var(--font-display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.headline .s { font-size: 14px; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; margin-top: 18px; }
+.stat { background: var(--surface); padding: 14px 16px; display: grid; gap: 2px; }
+.stat .k { font-size: 13px; color: var(--muted); }
+.stat .v { font: 700 20px/1.2 var(--font-display); font-variant-numeric: tabular-nums; }
+.stat .v.up { color: var(--warn); }
+
+.saving { background: var(--save-soft); border-color: transparent; }
+.saving h2 { color: var(--save); }
+.saving-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+.saving .big { font: 800 clamp(28px, 4.6vw, 38px)/1.05 var(--font-display); color: var(--save); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.saving .k { font-size: 14px; color: var(--ink); opacity: .8; }
+.saving p { margin: 14px 0 0; font-size: 14.5px; }
+.callout { margin-top: 14px; background: var(--warn-soft); color: var(--warn); border-radius: 12px; padding: 12px 14px; font-size: 14px; }
+.empty-over { color: var(--muted); font-size: 15px; margin: 0; }
+
+.chart-wrap { width: 100%; }
+.chart-wrap svg { width: 100%; height: auto; display: block; overflow: visible; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-top: 10px; }
+.legend i { display: inline-block; width: 18px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 6px; }
+
+details.table { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 12px; }
+details.table summary { cursor: pointer; font-weight: 600; font-size: 14.5px; color: var(--accent); }
+.table-scroll { overflow-x: auto; margin-top: 12px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; min-width: 460px; }
+th, td { text-align: right; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+tr.svr td:first-child::after { content: "SVR"; font-size: 10.5px; font-weight: 600; letter-spacing: .05em; margin-left: 8px; padding: 2px 6px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); }
+
+.app { background: var(--brand); color: var(--brand-fg); border-color: transparent; display: grid; gap: 14px; }
+.app h2 { color: rgba(232,230,255,.6); }
+.app .pitch { font: 700 22px/1.25 var(--font-display); margin: 0; text-wrap: balance; }
+.app ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 15px; color: rgba(232,230,255,.85); }
+.app li::before { content: "✓"; color: #8E8BF5; font-weight: 700; margin-right: 10px; }
+.app .cta { justify-self: start; background: var(--brand-fg); color: var(--brand); font-weight: 700; text-decoration: none; padding: 12px 20px; border-radius: 12px; }
+.app .cta:hover { background: #fff; }
+
+.explain { margin-top: 40px; display: grid; gap: 26px; grid-template-columns: 1fr; }
+@media (min-width: 760px) { .explain { grid-template-columns: 1fr 1fr; } }
+.explain section { min-width: 0; }
+.explain h2 { font: 700 21px/1.25 var(--font-display); margin: 0 0 8px; text-wrap: balance; }
+.explain p { margin: 0 0 10px; max-width: 62ch; color: var(--muted); }
+.explain p strong { color: var(--ink); font-weight: 600; }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 22px 32px; font-size: 13px; color: var(--muted); display: grid; gap: 8px; }
+footer a { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brandline">
+      <a class="brand" href="./">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-5.5h-5V21H5a1 1 0 0 1-1-1v-8.5Z" fill="#E8E6FF"/></svg>
+        </span>
+        Mortgage Save
+      </a>
+      <a class="store-link" href="https://apps.apple.com/app/id6467675017" rel="noopener">Get the iPhone app</a>
+    </div>
+    <div>
+      <h1>Mortgage overpayment calculator</h1>
+      <p class="lede">See what you’ll pay on your deal and after it reverts to the standard variable rate, then how much interest and time a monthly overpayment could save.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="calc">
+      <form class="panel inputs-panel" id="form" novalidate>
+        <h2>Your mortgage</h2>
+        <div class="inputs">
+          <div class="group">
+            <div class="field" id="f-loan">
+              <label for="loan">Amount left to pay</label>
+              <div class="box"><span>£</span><input id="loan" name="loan" inputmode="decimal" autocomplete="off"></div>
+              <div class="err" id="e-loan"></div>
+            </div>
+            <div class="field" id="f-termYears">
+              <label for="termYears">Years left on the mortgage</label>
+              <div class="box"><input id="termYears" name="termYears" inputmode="decimal" autocomplete="off"><span class="after">years</span></div>
+              <div class="err" id="e-termYears"></div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="group-title">Your current deal</div>
+            <div class="pair">
+              <div class="field" id="f-dealRate">
+                <label for="dealRate">Deal rate</label>
+                <div class="box"><input id="dealRate" name="dealRate" inputmode="decimal" autocomplete="off"><span class="after">%</span></div>
+                <div class="err" id="e-dealRate"></div>
+              </div>
+              <div class="field" id="f-dealYears">
+                <label for="dealYears">Years left on deal</label>
+                <div class="box"><input id="dealYears" name="dealYears" inputmode="decimal" autocomplete="off"><span class="after">yrs</span></div>
+                <div class="err" id="e-dealYears"></div>
+              </div>
+            </div>
+            <div class="field" id="f-svr">
+              <label for="svr">Rate after the deal (SVR)</label>
+              <div class="box"><input id="svr" name="svr" inputmode="decimal" autocomplete="off"><span class="after">%</span></div>
+              <div class="err" id="e-svr"></div>
+            </div>
+          </div>
+
+          <div class="group">
+            <div class="field" id="f-overpayment">
+              <label for="overpayment">Monthly overpayment</label>
+              <div class="box"><span>£</span><input id="overpayment" name="overpayment" inputmode="decimal" autocomplete="off"></div>
+              <input type="range" id="overSlider" min="0" max="2000" step="10" aria-label="Monthly overpayment slider">
+              <div class="range-ends"><span>£0</span><span id="capLabel">£0 a month (10% a year)</span></div>
+              <div class="err" id="e-overpayment"></div>
+            </div>
+          </div>
+
+          <div class="example-note">
+            <span id="exampleText">Example figures. Change them to yours.</span>
+            <button type="button" class="linkbtn" id="copyLink">Copy link to these figures</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="results" aria-live="polite">
+        <section class="panel" id="paymentsPanel">
+          <h2>Your payments</h2>
+          <div class="headline">
+            <span class="k">Monthly payment during your deal</span>
+            <span class="v" id="r-deal">–</span>
+            <span class="s" id="r-deal-sub"></span>
+          </div>
+          <div class="stats">
+            <div class="stat"><span class="k">After the deal ends</span><span class="v" id="r-svr">–</span></div>
+            <div class="stat"><span class="k">Total interest</span><span class="v" id="r-interest">–</span></div>
+            <div class="stat"><span class="k">Total to repay</span><span class="v" id="r-total">–</span></div>
+          </div>
+        </section>
+
+        <section class="panel saving" id="savingPanel">
+          <h2>What overpaying saves</h2>
+          <div id="savingBody"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Balance over time</h2>
+          <div class="chart-wrap" id="chart"></div>
+          <div class="legend" id="legend"></div>
+          <details class="table">
+            <summary>Year-by-year breakdown</summary>
+            <div class="table-scroll"><table id="yearTable"></table></div>
+          </details>
+        </section>
+
+        <section class="panel app">
+          <h2>Mortgage Save for iPhone</h2>
+          <p class="pitch">Keep your figures, compare deals and get reminded before your deal ends.</p>
+          <ul>
+            <li>Save scenarios and compare up to three side by side</li>
+            <li>A reminder before your deal reverts to the SVR</li>
+            <li>Full month-by-month schedule and PDF export</li>
+          </ul>
+          <a class="cta" href="https://apps.apple.com/app/id6467675017" rel="noopener">Download on the App Store</a>
+        </section>
+      </div>
+    </div>
+
+    <div class="explain">
+      <section>
+        <h2>How much can I overpay without a penalty?</h2>
+        <p>Most UK lenders let you overpay <strong>up to 10% of your balance each year</strong> while you’re on a fixed or tracker deal. Go over that and you’ll usually pay an early repayment charge (ERC) on the extra. Some lenders measure the 10% against the original loan or reset it on your deal anniversary, so check your mortgage offer.</p>
+        <p>Once you’re on the SVR, there’s normally no limit.</p>
+      </section>
+      <section>
+        <h2>Why does my payment jump after the deal?</h2>
+        <p>When a deal ends, lenders move you to their <strong>standard variable rate</strong>, which is usually well above deal rates. This calculator works out the balance left when your deal ends and recalculates the payment at the SVR for the remaining years.</p>
+        <p>Most people remortgage before this happens, so treat the SVR figure as the cost of doing nothing.</p>
+      </section>
+      <section>
+        <h2>Overpay or keep the payment the same?</h2>
+        <p>These figures assume you keep your normal payment and pay extra on top, so the mortgage finishes sooner. Some lenders instead lower your monthly payment after an overpayment. You save less interest that way, so ask your lender to <strong>reduce the term</strong> if finishing early is the goal.</p>
+      </section>
+      <section>
+        <h2>Should I overpay or save?</h2>
+        <p>Overpaying earns you a guaranteed return equal to your mortgage rate. A savings account can beat it if its rate after tax is higher, and money you overpay is hard to get back, so most people keep an emergency fund first.</p>
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Figures are estimates for guidance only and aren’t financial advice. Your lender’s statement is the final word. Interest is calculated monthly at the rates you enter.</span>
+    <span>Everything you type stays in your browser. Nothing is sent or stored. <a href="https://jamesishere00100001.github.io/mortgagesave/privacy-policy.html">Privacy policy</a></span>
+  </div>
+</footer>
+
+<script type="module">
+import { calculate, maxMonthlyOverpayment } from './calc.js';
+
+const EXAMPLE = { loan: 250000, termYears: 25, dealRate: 4.5, dealYears: 5, svr: 7.25, overpayment: 200 };
+const FIELDS = Object.keys(EXAMPLE);
+const $ = (id) => document.getElementById(id);
+
+const gbp0 = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 });
+const gbp2 = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const num = (v) => Number(String(v).replace(/[£,%\s]/g, ''));
+const plain = (n) => (Number.isInteger(n) ? String(n) : String(+n.toFixed(2)));
+
+function duration(months) {
+  const m = Math.round(months);
+  const y = Math.floor(m / 12), r = m % 12;
+  const parts = [];
+  if (y) parts.push(`${y} year${y === 1 ? '' : 's'}`);
+  if (r) parts.push(`${r} month${r === 1 ? '' : 's'}`);
+  return parts.join(' ') || '0 months';
+}
+
+function readForm() {
+  const d = {};
+  for (const k of FIELDS) d[k] = $(k).value.trim() === '' ? (k === 'overpayment' ? 0 : NaN) : num($(k).value);
+  return d;
+}
+
+function fill(d) {
+  for (const k of FIELDS) $(k).value = k === 'loan' || k === 'overpayment' ? Number(d[k]).toLocaleString('en-GB') : plain(d[k]);
+}
+
+function initialValues() {
+  try {
+    const q = new URLSearchParams(location.search);
+    if (FIELDS.every((k) => q.has(k))) {
+      const d = {};
+      for (const k of FIELDS) d[k] = num(q.get(k));
+      if (FIELDS.every((k) => Number.isFinite(d[k]))) return { d, fromLink: true };
+    }
+  } catch (_) {}
+  return { d: EXAMPLE, fromLink: false };
+}
+
+function syncUrl(d) {
+  try {
+    const q = new URLSearchParams();
+    for (const k of FIELDS) q.set(k, plain(d[k]));
+    history.replaceState(null, '', `${location.pathname}?${q}`);
+  } catch (_) {}
+}
+
+function showErrors(errors) {
+  for (const k of FIELDS) {
+    $(`e-${k}`).textContent = errors[k] || '';
+    $(`f-${k}`).classList.toggle('bad', !!errors[k]);
+  }
+}
+
+function renderChart(baseYears, overYears, dealYears) {
+  const W = 640, H = 260, L = 58, R = 14, T = 14, B = 34;
+  const n = baseYears.length;
+  const max = baseYears.length ? Math.max(...baseYears.map((y) => y.closing), 0) : 0;
+  const top = Math.max(baseYears[0] ? baseYears[0].closing + baseYears[0].principal : 1, max);
+  const step = niceStep(top / 4);
+  const yMax = Math.ceil(top / step) * step;
+  const x = (yr) => L + (yr / n) * (W - L - R);
+  const y = (v) => T + (1 - v / yMax) * (H - T - B);
+  const start = baseYears[0] ? baseYears[0].closing + baseYears[0].principal : 0;
+
+  const pts = (years) => [[0, start], ...years.map((yr) => [yr.year, yr.closing])];
+  const line = (p) => p.map(([a, b], i) => `${i ? 'L' : 'M'}${x(a).toFixed(1)},${y(b).toFixed(1)}`).join('');
+  const area = (p) => `${line(p)}L${x(p.at(-1)[0]).toFixed(1)},${y(0)}L${x(0)},${y(0)}Z`;
+
+  let grid = '';
+  for (let v = 0; v <= yMax + 1; v += step) {
+    grid += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/>`;
+    grid += `<text x="${L - 8}" y="${y(v) + 4}" text-anchor="end" font-size="11" fill="var(--muted)">${shortMoney(v)}</text>`;
+  }
+  const tickEvery = n > 30 ? 10 : n > 12 ? 5 : n > 6 ? 2 : 1;
+  for (let t = 0; t <= n; t += tickEvery) {
+    grid += `<text x="${x(t)}" y="${H - 12}" text-anchor="middle" font-size="11" fill="var(--muted)">${t === 0 ? 'Now' : `${t}y`}</text>`;
+  }
+  const dealX = x(Math.min(dealYears, n));
+  const dealMark = dealYears < n
+    ? `<line x1="${dealX}" x2="${dealX}" y1="${T}" y2="${y(0)}" stroke="var(--warn)" stroke-dasharray="4 4" stroke-width="1.2"/>
+       <text x="${dealX + 6}" y="${T + 11}" font-size="11" fill="var(--warn)">Deal ends</text>` : '';
+
+  const basePts = pts(baseYears);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Mortgage balance by year">${grid}${dealMark}`;
+  svg += `<path d="${line(basePts)}" fill="none" stroke="var(--chart-base)" stroke-width="2.5" stroke-linejoin="round"/>`;
+  if (overYears) {
+    const op = pts(overYears);
+    svg += `<path d="${area(op)}" fill="var(--accent)" opacity="0.12"/>`;
+    svg += `<path d="${line(op)}" fill="none" stroke="var(--accent)" stroke-width="2.8" stroke-linejoin="round"/>`;
+    const end = op.at(-1);
+    svg += `<circle cx="${x(end[0])}" cy="${y(0)}" r="4.5" fill="var(--accent)"/>`;
+  }
+  svg += '</svg>';
+  $('chart').innerHTML = svg;
+  $('legend').innerHTML =
+    `<span><i style="background:var(--chart-base)"></i>Normal payments</span>` +
+    (overYears ? `<span><i style="background:var(--accent)"></i>With overpayments</span>` : '');
+}
+
+function niceStep(raw) {
+  const p = Math.pow(10, Math.floor(Math.log10(raw || 1)));
+  const f = raw / p;
+  return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p;
+}
+function shortMoney(v) {
+  if (v >= 1e6) return `£${+(v / 1e6).toFixed(2)}m`;
+  if (v >= 1e3) return `£${Math.round(v / 1e3)}k`;
+  return `£${Math.round(v)}`;
+}
+
+function renderTable(baseYears, overYears) {
+  const rows = (overYears || baseYears);
+  const head = `<thead><tr><th>Year</th><th>Paid</th><th>Interest</th><th>Capital</th><th>Balance at end</th></tr></thead>`;
+  const body = rows.map((y) => `<tr class="${y.inDeal ? '' : 'svr'}"><td>${y.year}</td><td>${gbp0.format(y.paid)}</td><td>${gbp0.format(y.interest)}</td><td>${gbp0.format(y.principal)}</td><td>${gbp0.format(y.closing)}</td></tr>`).join('');
+  $('yearTable').innerHTML = head + `<tbody>${body}</tbody>`;
+  document.querySelector('details.table summary').textContent =
+    overYears ? 'Year-by-year breakdown (with overpayments)' : 'Year-by-year breakdown';
+}
+
+function render() {
+  const d = readForm();
+  const r = calculate(d);
+  showErrors(r.errors);
+
+  const slider = $('overSlider');
+  if (d.loan > 0) {
+    const cap = maxMonthlyOverpayment(d.loan);
+    slider.max = String(Math.max(10, Math.round(cap / 10) * 10));
+    $('capLabel').textContent = `${gbp0.format(cap)} a month (10% a year)`;
+  }
+  if (document.activeElement !== slider) slider.value = String(d.overpayment || 0);
+
+  if (Object.keys(r.errors).length) return;
+  syncUrl(d);
+
+  const { std, over } = r;
+  $('r-deal').textContent = gbp2.format(std.dealPayment);
+  $('r-deal-sub').textContent = `For ${duration(std.dealMonths)} at ${plain(d.dealRate)}%`;
+  const rise = std.svrPayment - std.dealPayment;
+  $('r-svr').textContent = std.svrMonths > 0 ? gbp2.format(std.svrPayment) : 'Paid off';
+  $('r-svr').classList.toggle('up', std.svrMonths > 0 && rise > 0.5);
+  $('r-svr').title = std.svrMonths > 0 ? `${rise >= 0 ? '+' : '−'}${gbp2.format(Math.abs(rise))} a month at ${plain(d.svr)}%` : '';
+  $('r-interest').textContent = gbp0.format(std.totalInterest);
+  $('r-total').textContent = gbp0.format(std.totalPayable);
+
+  const body = $('savingBody');
+  if (!over) {
+    body.innerHTML = `<p class="empty-over">Add a monthly overpayment to see how much interest and time it saves.</p>`;
+  } else {
+    const saved = Math.max(0, over.saving);
+    body.innerHTML = `
+      <div class="saving-grid">
+        <div><div class="big">${gbp0.format(saved)}</div><div class="k">less interest</div></div>
+        <div><div class="big">${duration(Math.max(0, over.monthsSaved))}</div><div class="k">sooner mortgage-free</div></div>
+      </div>
+      <p>Paying ${gbp2.format(over.dealPayment)} a month instead of ${gbp2.format(std.dealPayment)} clears the mortgage in ${duration(over.months)} rather than ${duration(std.months)}.</p>
+      ${over.overCap ? `<div class="callout">This is more than 10% of your balance a year (${gbp0.format(r.cap)} a month). Most lenders charge an early repayment charge on the extra while you’re on a deal, which these figures don’t include.</div>` : ''}`;
+  }
+
+  renderChart(r.baseYears, r.overYears, d.dealYears);
+  renderTable(r.baseYears, r.overYears);
+}
+
+const start = initialValues();
+fill(start.d);
+if (start.fromLink) $('exampleText').textContent = 'Figures from a shared link.';
+
+let typed = false;
+$('form').addEventListener('input', (e) => {
+  if (e.target.id === 'overSlider') {
+    $('overpayment').value = Number(e.target.value).toLocaleString('en-GB');
+  }
+  if (!typed) { typed = true; $('exampleText').textContent = 'Your figures stay in this browser.'; }
+  render();
+});
+$('form').addEventListener('submit', (e) => e.preventDefault());
+for (const k of ['loan', 'overpayment']) {
+  $(k).addEventListener('blur', () => {
+    const v = num($(k).value);
+    if (Number.isFinite(v) && $(k).value.trim() !== '') $(k).value = v.toLocaleString('en-GB');
+  });
+}
+$('copyLink').addEventListener('click', async () => {
+  const btn = $('copyLink');
+  try {
+    await navigator.clipboard.writeText(location.href);
+    btn.textContent = 'Link copied';
+  } catch (_) {
+    btn.textContent = 'Copy the address bar to share';
+  }
+  setTimeout(() => { btn.textContent = 'Copy link to these figures'; }, 2500);
+});
+
+render();
+</script>
+</body>
+</html>
