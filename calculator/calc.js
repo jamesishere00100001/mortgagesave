@@ -132,22 +132,33 @@ export function schedule(d, std, includeOverpayment) {
   let balance = d.loan;
   let month = 1;
   let dealRemaining = Math.trunc(d.dealYears * 12);
-  const last = Math.trunc(d.termYears * 12) + 12;
+  const last = Math.trunc(d.termYears * 12);
 
   while (balance > 0.01 && month <= last) {
     const inDeal = dealRemaining > 0;
     const rate = inDeal ? d.dealRate : d.svr;
     const base = inDeal ? std.dealPayment : std.svrPayment;
     const interest = balance * (rate / 100 / 12);
-    const principal = Math.min(base + over - interest, balance);
+    let payment = base;
+    let overpayment = over;
+    let principal = Math.min(base + over - interest, balance);
+
+    // Final payment: settle the exact amount owed so penny rounding can't push the
+    // schedule past the term, and never show more paid than was owed.
+    if (month === last || balance - principal < 0.01) {
+      const owed = balance + interest;
+      principal = balance;
+      overpayment = Math.min(over, owed);
+      payment = owed - overpayment;
+    }
     const closing = Math.max(balance - principal, 0);
 
     rows.push({
       month,
       year: Math.floor((month - 1) / 12) + 1,
       opening: balance,
-      payment: base,
-      overpayment: over,
+      payment,
+      overpayment,
       principal,
       interest,
       closing,

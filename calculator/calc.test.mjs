@@ -104,3 +104,20 @@ test('validation rejects a deal longer than the term', () => {
   assert.ok(validate(loan({ dealYears: 30 })).dealYears);
   assert.deepEqual(validate(loan()), {});
 });
+
+test('schedule ends in the last month of the term (matches iOS final-payment fix)', () => {
+  const cases = [
+    { loan: 250000, termYears: 25, dealRate: 4.5, dealYears: 25, svr: 4.5 },
+    { loan: 250000, termYears: 25, dealRate: 4.5, dealYears: 2, svr: 7.5 },
+    { loan: 100000, termYears: 20, dealRate: 0, dealYears: 2, svr: 5 },
+    { loan: 187333.33, termYears: 17, dealRate: 3.79, dealYears: 3, svr: 6.99 },
+  ];
+  for (const c of cases) {
+    const d = { ...c, overpayment: 0 };
+    const rows = schedule(d, standardPayments(d), false);
+    assert.equal(rows.length, c.termYears * 12);
+    assert.ok(Math.abs(rows.at(-1).closing) < 1e-6);
+    assert.ok(Math.abs(rows.reduce((s, r) => s + r.principal, 0) - c.loan) < 1e-6);
+    assert.ok(rows.every((r) => r.closing <= r.opening));
+  }
+});
