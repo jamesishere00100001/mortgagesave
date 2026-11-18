@@ -3,5 +3,5 @@
 # Build context: this folder (the service's root directory is /calculator).
 FROM nginx:1.27-alpine
 COPY nginx.conf start.sh /srv/
-COPY index.html calc.js /srv/public/
+COPY index.html calc.js robots.txt sitemap.xml og-image.png /srv/public/
 CMD ["sh", "/srv/start.sh"]
