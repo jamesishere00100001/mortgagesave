@@ -1,11 +1,9 @@
 # Mortgage Save web calculator. Served by our own nginx (rather than Railpack's
 # default static server) so the security headers are ours to set.
 # Build context: this folder (the service's root directory is /calculator).
+# Everything in the folder is published except the build, test and server files.
 FROM nginx:1.27-alpine
 COPY nginx.conf start.sh /srv/
-COPY index.html calc.js simulator.js tools.js guide.js site.css robots.txt sitemap.xml og-image.png /srv/public/
-COPY lump-sum-overpayment-calculator /srv/public/lump-sum-overpayment-calculator/
-COPY mortgage-overpayment-allowance-calculator /srv/public/mortgage-overpayment-allowance-calculator/
-COPY fixed-rate-ending-calculator /srv/public/fixed-rate-ending-calculator/
-COPY overpay-mortgage-or-save-calculator /srv/public/overpay-mortgage-or-save-calculator/
+COPY . /srv/public/
+RUN cd /srv/public && rm -f Dockerfile nginx.conf start.sh README.md build_guides.py *.test.mjs
 CMD ["sh", "/srv/start.sh"]
