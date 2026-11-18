@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loan to Value (LTV) Calculator UK: Find Your Mortgage Rate Band | Mortgage Save</title>
+<meta name="description" content="Work out your mortgage loan-to-value (LTV), which lender band it falls in, and how much you’d need to pay off to reach the next, cheaper band before you remortgage.">
+<meta name="apple-itunes-app" content="app-id=6467675017">
+<link rel="canonical" href="https://mortgagesave.very-good-studio.com/loan-to-value-calculator/">
+<link rel="icon" href="../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mortgage Save">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Loan to value calculator – Mortgage Save">
+<meta property="og:description" content="Work out your mortgage loan-to-value (LTV), which lender band it falls in, and how much you’d need to pay off to reach the next, cheaper band before you remortgage.">
+<meta property="og:url" content="https://mortgagesave.very-good-studio.com/loan-to-value-calculator/">
+<meta property="og:image" content="https://mortgagesave.very-good-studio.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Loan to value calculator",
+      "url": "https://mortgagesave.very-good-studio.com/loan-to-value-calculator/",
+      "inLanguage": "en-GB",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "description": "Work out your mortgage loan-to-value (LTV), which lender band it falls in, and how much you’d need to pay off to reach the next, cheaper band before you remortgage.",
+      "publisher": {
+        "@id": "https://very-good-studio.com/#org"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Mortgage overpayment calculator",
+          "item": "https://mortgagesave.very-good-studio.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Loan to value calculator",
+          "item": "https://mortgagesave.very-good-studio.com/loan-to-value-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I calculate my loan to value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide your mortgage balance by your property’s value and multiply by 100. A £180,000 balance on a £250,000 home is 72% LTV."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good loan to value for a mortgage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The lowest rates are usually at 60% LTV or below. Each band down, such as from 80% to 75%, usually brings a lower rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does overpaying reduce my loan to value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Overpaying reduces your balance, which lowers your LTV and can move you into a cheaper band when you remortgage."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://very-good-studio.com/#org",
+      "name": "Very Good Studio",
+      "url": "https://very-good-studio.com/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brandline">
+      <a class="brand" href="../">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-5.5h-5V21H5a1 1 0 0 1-1-1v-8.5Z" fill="#E8E6FF"/></svg>
+        </span>
+        Mortgage Save
+      </a>
+      <a class="store-link" href="https://apps.apple.com/app/id6467675017" rel="noopener">Get the iPhone app</a>
+    </div>
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Overpayment calculator</a> › Loan to value</nav>
+      <h1>Loan to value calculator</h1>
+      <p class="lede">See your loan-to-value, which rate band it puts you in, and how much less you’d need to owe to reach the next cheaper band.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="calc">
+      <form class="panel inputs-panel" id="form" novalidate>
+        <h2>Your home and mortgage</h2>
+        <div class="inputs">
+          <div class="pair">
+            <div class="field" id="f-value">
+              <label for="value">Property value</label>
+              <div class="box"><span>£</span><input id="value" name="value" inputmode="decimal" autocomplete="off"></div>
+              <div class="err" id="e-value"></div>
+            </div>
+            <div class="field" id="f-loan">
+              <label for="loan">Mortgage balance</label>
+              <div class="box"><span>£</span><input id="loan" name="loan" inputmode="decimal" autocomplete="off"></div>
+              <div class="err" id="e-loan"></div>
+            </div>
+          </div>
+          <div class="example-note"><span>Example figures. Change them to yours. They stay in this browser.</span></div>
+        </div>
+      </form>
+
+      <div class="results">
+        <section class="panel">
+          <h2>Your loan to value</h2>
+          <div class="headline"><span class="k">LTV</span><span class="v" id="h-ltv">–</span><span class="s" id="h-sub"></span></div>
+        </section>
+        <section class="panel saving">
+          <h2>Next band down</h2>
+          <div id="out"></div>
+        </section>
+
+        <section class="panel app">
+          <h2>Mortgage Save for iPhone</h2>
+          <p class="pitch">Track your balance as it falls and get reminded before your deal ends, so you remortgage at the right time.</p>
+          <ul>
+            <li>Save scenarios and compare up to three side by side</li>
+            <li>A reminder before your deal reverts to the SVR</li>
+            <li>Full month-by-month schedule and PDF export</li>
+          </ul>
+          <a class="cta" href="https://apps.apple.com/app/id6467675017" rel="noopener">Download on the App Store</a>
+        </section>
+      </div>
+    </div>
+
+    <article class="article">
+      <h2>What loan to value means</h2>
+<p>Loan to value (LTV) is your mortgage balance as a percentage of what your home is worth. A £240,000 mortgage on a £300,000 home is 80% LTV. Lenders price their deals in LTV bands, and the lower your band, the lower the rate they usually offer.</p>
+<h2>The usual bands</h2>
+<p>Most UK lenders set rates at 60%, 75%, 80%, 85%, 90% and 95% LTV. The biggest rate differences tend to be at the higher end, between 95%, 90% and 85%, but moving from 75% to 60% can still save a meaningful amount over a five-year fix.</p>
+<h2>Getting into a lower band</h2>
+<ul>
+<li><strong>Overpay before you remortgage.</strong> A lump sum or regular overpayments in the months before your deal ends can tip you into the next band. Check your overpayment allowance first, using the <a href="../mortgage-overpayment-allowance-calculator/">allowance calculator</a>.</li>
+<li><strong>Get an up-to-date valuation.</strong> If prices near you have risen, your LTV may already be lower than you think. Lenders use their own valuation, so use a realistic figure.</li>
+<li><strong>Time it.</strong> Your balance falls every month, so a band you’re just above now may come within reach by the end of your deal.</li>
+</ul>
+      <h2>How do I calculate my loan to value?</h2>
+<p>Divide your mortgage balance by your property’s value and multiply by 100. A £180,000 balance on a £250,000 home is 72% LTV.</p>
+<h2>What is a good loan to value for a mortgage?</h2>
+<p>The lowest rates are usually at 60% LTV or below. Each band down, such as from 80% to 75%, usually brings a lower rate.</p>
+<h2>Does overpaying reduce my loan to value?</h2>
+<p>Yes. Overpaying reduces your balance, which lowers your LTV and can move you into a cheaper band when you remortgage.</p>
+
+    </article>
+
+    <nav class="related" aria-label="More calculators">
+      <h2>More mortgage calculators</h2>
+      <ul><li><a href="../">Mortgage overpayment calculator<span>Monthly overpayments across your deal and the SVR</span></a></li><li><a href="../lump-sum-overpayment-calculator/">Lump sum mortgage overpayment calculator<span>A one-off payment: interest and time saved</span></a></li><li><a href="../mortgage-overpayment-allowance-calculator/">How much can I overpay my mortgage?<span>Your 10% allowance and any charge over it</span></a></li><li><a href="../fixed-rate-ending-calculator/">Fixed rate ending calculator<span>Your payment on the SVR vs a new deal</span></a></li><li><a href="../overpay-mortgage-or-save-calculator/">Overpay your mortgage or save?<span>Interest saved vs interest earned after tax</span></a></li><li><a href="../stamp-duty-calculator/">Stamp duty calculator<span>England and NI, with first-time buyer relief</span></a></li><li><a href="../how-much-can-i-borrow-calculator/">How much can I borrow?<span>A quick income-multiple estimate</span></a></li><li><a href="../2-year-vs-5-year-fix-calculator/">2-year vs 5-year fix calculator<span>Which fix costs less, and the break-even rate</span></a></li><li><a href="../leave-fixed-rate-early-calculator/">Should I leave my fixed rate early?<span>Is a cheaper deal worth the early repayment charge?</span></a></li></ul>
+    </nav>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Figures are estimates for guidance only and aren’t financial advice. Your lender’s statement is the final word. Interest is calculated monthly at the rates you enter.</span>
+    <span>Everything you type stays in your browser. Nothing is sent or stored. <a href="https://very-good-studio.com/apps/mortgage-save/privacy-policy.html">Privacy policy</a></span>
+  </div>
+</footer>
+
+<script type="module">
+import { setup, $, gbp0, plain } from '../guide.js';
+import { loanToValue } from '../property.js';
+
+setup({
+  fields: {
+    value: { min: 1000, max: 100000000, money: true },
+    loan: { min: 0, max: 100000000, money: true },
+  },
+  defaults: { value: 300000, loan: 230000 },
+  showInvalid: () => { $('h-ltv').textContent = '–'; $('out').innerHTML = '<p class="empty-over">Check the figures marked in red.</p>'; },
+  render: (d) => {
+    const r = loanToValue(d.loan, d.value);
+    $('h-ltv').textContent = `${plain(+r.percent.toFixed(1))}%`;
+    $('h-sub').textContent = r.band == null ? 'Above 95%: most lenders won’t lend at this level' : `In the up to ${r.band}% LTV band`;
+    $('out').innerHTML = r.nextLowerBand == null ? '<p class="empty-over">You’re already in the lowest common band (60% or below).</p>' : `
+      <div class="saving-grid">
+        <div><div class="big">${gbp0.format(r.reductionToNextBand)}</div><div class="k">less to owe to reach ${r.nextLowerBand}% LTV</div></div>
+      </div>
+      <p>See what paying that off saves with the <a href="../lump-sum-overpayment-calculator/">lump sum calculator</a>.</p>
+      <p class="nudge">Get reminded before your deal ends, when you can remortgage into the lower band, with <a href="https://apps.apple.com/app/id6467675017" rel="noopener">Mortgage Save for iPhone</a>.</p>`;
+  },
+});
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3850486203cd40769943ba21bf3ae65b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

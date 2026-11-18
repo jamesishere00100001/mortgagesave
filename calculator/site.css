@@ -164,3 +164,6 @@ footer a { color: var(--muted); }
 .pair { align-items: start; }
 .crumbs { margin-bottom: 8px; }
 .saving p a { color: var(--save); font-weight: 600; }
+#cmp, #bands { min-width: 0; }
+#cmp td:first-child, #bands td:first-child { white-space: normal; }
+#cmp th, #cmp td { padding-inline: 6px; }
