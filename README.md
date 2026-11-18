@@ -1,4 +1,3 @@
-# mortgagesave
-Mortgage Save Support and Privacy 
+# mortgagesave (moved)
 
-Support pages for Mortgage Save app 
+Mortgage Save support and privacy pages now live at https://very-good-studio.com/apps/mortgage-save/. The pages here redirect there.
