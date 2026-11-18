@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mortgage Overpayment Allowance Calculator: the 10% Rule | Mortgage Save</title>
+<meta name="description" content="How much can you overpay your mortgage without a penalty? Work out your 10% overpayment allowance, what’s left this year, and the early repayment charge on anything over it.">
+<meta name="apple-itunes-app" content="app-id=6467675017">
+<link rel="canonical" href="https://mortgagesave.very-good-studio.com/mortgage-overpayment-allowance-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mortgage Save">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="How much can I overpay my mortgage? – Mortgage Save">
+<meta property="og:description" content="How much can you overpay your mortgage without a penalty? Work out your 10% overpayment allowance, what’s left this year, and the early repayment charge on anything over it.">
+<meta property="og:url" content="https://mortgagesave.very-good-studio.com/mortgage-overpayment-allowance-calculator/">
+<meta property="og:image" content="https://mortgagesave.very-good-studio.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "How much can I overpay my mortgage?",
+      "url": "https://mortgagesave.very-good-studio.com/mortgage-overpayment-allowance-calculator/",
+      "inLanguage": "en-GB",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "description": "How much can you overpay your mortgage without a penalty? Work out your 10% overpayment allowance, what’s left this year, and the early repayment charge on anything over it.",
+      "publisher": {
+        "@id": "https://very-good-studio.com/#org"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Mortgage overpayment calculator",
+          "item": "https://mortgagesave.very-good-studio.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How much can I overpay my mortgage?",
+          "item": "https://mortgagesave.very-good-studio.com/mortgage-overpayment-allowance-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I overpay my mortgage by more than 10%?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but during a fixed or tracker deal most lenders charge an early repayment charge on the amount above the allowance. On the standard variable rate there is usually no limit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the 10% overpayment allowance per year or for the whole deal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is per year of the deal with most lenders, and unused allowance usually does not carry over."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a lump sum count towards the 10% allowance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Regular overpayments and one-off lump sums normally share the same yearly allowance."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://very-good-studio.com/#org",
+      "name": "Very Good Studio",
+      "url": "https://very-good-studio.com/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brandline">
+      <a class="brand" href="../">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-5.5h-5V21H5a1 1 0 0 1-1-1v-8.5Z" fill="#E8E6FF"/></svg>
+        </span>
+        Mortgage Save
+      </a>
+      <a class="store-link" href="https://apps.apple.com/app/id6467675017" rel="noopener">Get the iPhone app</a>
+    </div>
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Overpayment calculator</a> › Overpayment allowance</nav>
+      <h1>How much can I overpay my mortgage?</h1>
+      <p class="lede">Work out your penalty-free overpayment allowance for this year, how much of it is left, and what you’d pay in charges if you go over.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="calc">
+      <form class="panel inputs-panel" id="form" novalidate>
+        <h2>Your allowance</h2>
+        <div class="inputs">
+          <div class="field" id="f-balance">
+              <label for="balance">Balance your lender measures from</label>
+              <div class="box"><span>£</span><input id="balance" name="balance" inputmode="decimal" autocomplete="off"></div><div class="hint">Usually the balance at the start of your mortgage year. Some lenders use the original loan.</div>
+              <div class="err" id="e-balance"></div>
+            </div>
+          <div class="pair">
+            <div class="field" id="f-pct">
+              <label for="pct">Allowance each year</label>
+              <div class="box"><input id="pct" name="pct" inputmode="decimal" autocomplete="off"><span class="after">%</span></div>
+              <div class="err" id="e-pct"></div>
+            </div>
+            <div class="field" id="f-used">
+              <label for="used">Overpaid so far this year</label>
+              <div class="box"><span>£</span><input id="used" name="used" inputmode="decimal" autocomplete="off"></div>
+              <div class="err" id="e-used"></div>
+            </div>
+          </div>
+          <div class="pair">
+            <div class="field" id="f-monthsLeft">
+              <label for="monthsLeft">Months left in year</label>
+              <div class="box"><input id="monthsLeft" name="monthsLeft" inputmode="decimal" autocomplete="off"></div>
+              <div class="err" id="e-monthsLeft"></div>
+            </div>
+            <div class="field" id="f-erc">
+              <label for="erc">Repayment charge</label>
+              <div class="box"><input id="erc" name="erc" inputmode="decimal" autocomplete="off"><span class="after">%</span></div>
+              <div class="err" id="e-erc"></div>
+            </div>
+          </div>
+          <div class="example-note"><span>Example figures. Change them to yours. They stay in this browser.</span></div>
+        </div>
+      </form>
+
+      <div class="results">
+        <section class="panel saving">
+          <h2>Left to overpay this year</h2>
+          <div id="out"></div>
+        </section>
+        <section class="panel">
+          <h2>Your allowance</h2>
+          <div class="stats" style="margin-top:0">
+            <div class="stat"><span class="k">Allowance this year</span><span class="v" id="s-year">–</span></div>
+            <div class="stat"><span class="k">Spread evenly, a month</span><span class="v" id="s-even">–</span></div>
+            <div class="stat"><span class="k">Used so far</span><span class="v" id="s-used">–</span></div>
+          </div>
+          <p class="fullcalc">See what overpaying this much saves in the <a href="../" id="full">overpayment calculator</a>.</p>
+        </section>
+
+        <section class="panel app">
+          <h2>Mortgage Save for iPhone</h2>
+          <p class="pitch">Keep your figures in one place and get reminded before your deal ends, when the limit usually lifts.</p>
+          <ul>
+            <li>Save scenarios and compare up to three side by side</li>
+            <li>A reminder before your deal reverts to the SVR</li>
+            <li>Full month-by-month schedule and PDF export</li>
+          </ul>
+          <a class="cta" href="https://apps.apple.com/app/id6467675017" rel="noopener">Download on the App Store</a>
+        </section>
+      </div>
+    </div>
+
+    <article class="article">
+      <h2>The 10% overpayment rule</h2>
+<p>Most UK fixed and tracker deals let you overpay up to 10% of your balance each year without an early repayment charge (ERC). It’s a lender rule rather than a law, so the details vary:</p>
+<ul>
+<li><strong>What the 10% is of.</strong> Most lenders use the balance at the start of each year of the deal. A few use the original loan, or the balance on the day you overpay.</li>
+<li><strong>When the year resets.</strong> Often on your deal’s anniversary, sometimes on 1 January.</li>
+<li><strong>What counts.</strong> Regular monthly overpayments and one-off lump sums usually share the same allowance.</li>
+<li><strong>Unused allowance.</strong> It rarely carries over to the next year.</li>
+</ul>
+<p>Your mortgage offer or your lender’s app will say which applies to you.</p>
+<h2>What happens if you overpay more than 10%?</h2>
+<p>The ERC is charged on the amount over the allowance, not on the whole overpayment. Charges are usually 1% to 5% and step down each year of the deal, so going over late in a deal costs less. Once your deal ends and you move to the standard variable rate, there’s normally no limit and no charge.</p>
+<h2>Turning the allowance into a monthly figure</h2>
+<p>Dividing the allowance by twelve gives the largest regular overpayment you can make all year without going over. If you’ve already overpaid this year, the calculator spreads what’s left over the remaining months.</p>
+      <h2>Can I overpay my mortgage by more than 10%?</h2>
+<p>Yes, but during a fixed or tracker deal most lenders charge an early repayment charge on the amount above the allowance. On the standard variable rate there is usually no limit.</p>
+<h2>Is the 10% overpayment allowance per year or for the whole deal?</h2>
+<p>It is per year of the deal with most lenders, and unused allowance usually does not carry over.</p>
+<h2>Does a lump sum count towards the 10% allowance?</h2>
+<p>Yes. Regular overpayments and one-off lump sums normally share the same yearly allowance.</p>
+
+    </article>
+
+    <nav class="related" aria-label="More calculators">
+      <h2>More mortgage calculators</h2>
+      <ul><li><a href="../">Mortgage overpayment calculator<span>Monthly overpayments across your deal and the SVR</span></a></li><li><a href="../lump-sum-overpayment-calculator/">Lump sum mortgage overpayment calculator<span>A one-off payment: interest and time saved</span></a></li><li><a href="../fixed-rate-ending-calculator/">Fixed rate ending calculator<span>Your payment on the SVR vs a new deal</span></a></li><li><a href="../overpay-mortgage-or-save-calculator/">Overpay your mortgage or save?<span>Interest saved vs interest earned after tax</span></a></li></ul>
+    </nav>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Figures are estimates for guidance only and aren’t financial advice. Your lender’s statement is the final word. Interest is calculated monthly at the rates you enter.</span>
+    <span>Everything you type stays in your browser. Nothing is sent or stored. <a href="https://very-good-studio.com/apps/mortgage-save/privacy-policy.html">Privacy policy</a></span>
+  </div>
+</footer>
+
+<script type="module">
+import { setup, $, gbp0, gbp2, plain } from '../guide.js';
+import { allowance } from '../tools.js';
+
+setup({
+  fields: {
+    balance: { min: 1000, max: 10000000, money: true },
+    pct: { min: 0, max: 100 },
+    used: { min: 0, max: 10000000, money: true },
+    monthsLeft: { min: 1, max: 12, msg: 'Enter 1 to 12 months' },
+    erc: { min: 0, max: 10 },
+  },
+  defaults: { balance: 180000, pct: 10, used: 2000, monthsLeft: 7, erc: 3 },
+  showInvalid: () => { $('out').innerHTML = '<p class="empty-over">Check the figures marked in red.</p>'; },
+  render: (d) => {
+    const a = allowance({ balance: d.balance, allowancePercent: d.pct, overpaidSoFar: d.used, monthsLeft: d.monthsLeft, ercPercent: d.erc });
+    $('out').innerHTML = a.overBy > 0 ? `
+      <div class="saving-grid"><div><div class="big">£0</div><div class="k">left this year</div></div></div>
+      <div class="callout">You’re ${gbp0.format(a.overBy)} over your allowance. At ${plain(d.erc)}%, that’s an early repayment charge of about ${gbp2.format(a.ercOnOver)}.</div>` : `
+      <div class="saving-grid">
+        <div><div class="big">${gbp0.format(a.remaining)}</div><div class="k">left this year</div></div>
+        <div><div class="big">${gbp0.format(a.perMonthLeft)}</div><div class="k">a month for the next ${d.monthsLeft} month${d.monthsLeft === 1 ? '' : 's'}</div></div>
+      </div>
+      <p>Going over would cost ${plain(d.erc)}% of the extra: ${gbp2.format(d.erc * 10)} for every £1,000 above the limit.</p>`;
+    $('out').innerHTML += `<p class="nudge">The limit usually lifts when your deal ends. <a href="https://apps.apple.com/app/id6467675017" rel="noopener">Mortgage Save for iPhone</a> can remind you before then.</p>`;
+    $('s-year').textContent = gbp0.format(a.yearly);
+    $('s-even').textContent = gbp0.format(a.monthlyEven);
+    $('s-used').textContent = gbp0.format(d.used);
+  },
+});
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3850486203cd40769943ba21bf3ae65b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

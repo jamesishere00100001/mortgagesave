@@ -3,14 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mortgage Overpayment Calculator</title>
+<title>Mortgage Overpayment Calculator UK: Fixed Deal and SVR | Mortgage Save</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Free UK mortgage overpayment calculator. See your monthly payment on your deal and after it reverts to the SVR, and how much interest and time a monthly overpayment saves. Nothing you enter leaves your browser.">
 <meta name="apple-itunes-app" content="app-id=6467675017">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mortgage Overpayment Calculator – Mortgage Save">
 <meta property="og:description" content="See how much interest and how many years a monthly overpayment could save on your UK mortgage.">
-<meta name="twitter:card" content="summary">
+<meta property="og:site_name" content="Mortgage Save">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://mortgagesave.very-good-studio.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mortgage Save: free UK mortgage overpayment calculator">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://mortgagesave.very-good-studio.com/">
 <meta property="og:url" content="https://mortgagesave.very-good-studio.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +32,25 @@
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
-      "description": "Calculate UK mortgage payments across a fixed deal and the standard variable rate, and see what monthly overpayments save."
+      "url": "https://mortgagesave.very-good-studio.com/",
+      "inLanguage": "en-GB",
+      "description": "Calculate UK mortgage payments across a fixed deal and the standard variable rate, and see what monthly overpayments save.",
+      "publisher": { "@id": "https://very-good-studio.com/#org" }
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "Mortgage Save",
+      "operatingSystem": "iOS",
+      "applicationCategory": "FinanceApplication",
+      "downloadUrl": "https://apps.apple.com/app/id6467675017",
+      "installUrl": "https://apps.apple.com/app/id6467675017",
+      "publisher": { "@id": "https://very-good-studio.com/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://very-good-studio.com/#org",
+      "name": "Very Good Studio",
+      "url": "https://very-good-studio.com/"
     },
     {
       "@type": "FAQPage",
@@ -182,6 +206,13 @@ tr.svr td:first-child::after { content: "SVR"; font-size: 10.5px; font-weight: 6
 .explain p { margin: 0 0 10px; max-width: 62ch; color: var(--muted); }
 .explain p strong { color: var(--ink); font-weight: 600; }
 
+.callout a, .nudge a { color: inherit; font-weight: 600; }
+.nudge { font-size: 14.5px; }
+.related { margin-top: 40px; }
+.related h2 { font: 700 13px/1 var(--font-body); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 14px; }
+.related ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.related li a { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; font-weight: 600; text-decoration: none; color: var(--accent); }
+.related li a span { display: block; font-weight: 400; font-size: 14px; color: var(--muted); margin-top: 2px; }
 footer { border-top: 1px solid var(--line); }
 footer .wrap { padding-block: 22px 32px; font-size: 13px; color: var(--muted); display: grid; gap: 8px; }
 footer a { color: var(--muted); }
@@ -328,6 +359,16 @@ footer a { color: var(--muted); }
         <p>Overpaying earns you a guaranteed return equal to your mortgage rate. A savings account can beat it if its rate after tax is higher, and money you overpay is hard to get back, so most people keep an emergency fund first.</p>
       </section>
     </div>
+
+    <nav class="related" aria-label="More calculators">
+      <h2>More mortgage calculators</h2>
+      <ul>
+        <li><a href="lump-sum-overpayment-calculator/">Lump sum overpayment calculator<span>A one-off payment: interest and time saved</span></a></li>
+        <li><a href="mortgage-overpayment-allowance-calculator/">How much can I overpay?<span>Your 10% allowance and any charge over it</span></a></li>
+        <li><a href="fixed-rate-ending-calculator/">Fixed rate ending calculator<span>Your payment on the SVR vs a new deal</span></a></li>
+        <li><a href="overpay-mortgage-or-save-calculator/">Overpay or save?<span>Interest saved vs interest earned after tax</span></a></li>
+      </ul>
+    </nav>
   </div>
 </main>
 
@@ -499,7 +540,8 @@ function render() {
         <div><div class="big">${duration(Math.max(0, over.monthsSaved))}</div><div class="k">sooner mortgage-free</div></div>
       </div>
       <p>Paying ${gbp2.format(over.dealPayment)} a month instead of ${gbp2.format(std.dealPayment)} clears the mortgage in ${duration(over.months)} rather than ${duration(std.months)}.</p>
-      ${over.overCap ? `<div class="callout">This is more than 10% of your balance a year (${gbp0.format(r.cap)} a month). Most lenders charge an early repayment charge on the extra while you’re on a deal, which these figures don’t include.</div>` : ''}`;
+      ${over.overCap ? `<div class="callout">This is more than 10% of your balance a year (${gbp0.format(r.cap)} a month). Most lenders charge an early repayment charge on the extra while you’re on a deal, which these figures don’t include. <a href="mortgage-overpayment-allowance-calculator/">Check your allowance</a>.</div>` : ''}
+      <p class="nudge">Keep these figures and get reminded before your deal ends with <a href="https://apps.apple.com/app/id6467675017" rel="noopener">Mortgage Save for iPhone</a>.</p>`;
   }
 
   renderChart(r.baseYears, r.overYears, d.dealYears);
