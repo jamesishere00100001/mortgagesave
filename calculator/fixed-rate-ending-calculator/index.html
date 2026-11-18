@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fixed Rate Ending Calculator: Your Payment on the SVR vs a New Deal | Mortgage Save</title>
+<meta name="description" content="Is your fixed rate mortgage ending? See your new monthly payment on your lender’s standard variable rate, on a new deal, and what a year of doing nothing would cost.">
+<meta name="apple-itunes-app" content="app-id=6467675017">
+<link rel="canonical" href="https://mortgagesave.very-good-studio.com/fixed-rate-ending-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mortgage Save">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Fixed rate ending calculator – Mortgage Save">
+<meta property="og:description" content="Is your fixed rate mortgage ending? See your new monthly payment on your lender’s standard variable rate, on a new deal, and what a year of doing nothing would cost.">
+<meta property="og:url" content="https://mortgagesave.very-good-studio.com/fixed-rate-ending-calculator/">
+<meta property="og:image" content="https://mortgagesave.very-good-studio.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Fixed rate ending calculator",
+      "url": "https://mortgagesave.very-good-studio.com/fixed-rate-ending-calculator/",
+      "inLanguage": "en-GB",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "GBP"
+      },
+      "description": "Is your fixed rate mortgage ending? See your new monthly payment on your lender’s standard variable rate, on a new deal, and what a year of doing nothing would cost.",
+      "publisher": {
+        "@id": "https://very-good-studio.com/#org"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Mortgage overpayment calculator",
+          "item": "https://mortgagesave.very-good-studio.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Fixed rate ending calculator",
+          "item": "https://mortgagesave.very-good-studio.com/fixed-rate-ending-calculator/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happens if I do nothing when my fixed rate ends?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your lender moves you to its standard variable rate. You can usually still move to a new deal afterwards, normally without an early repayment charge, but you pay the higher rate in the meantime."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How early can I lock in a new mortgage deal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most lenders let you choose a product transfer three to six months before your current deal ends, and many remortgage offers are valid for about six months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the SVR always higher than a new fixed rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost always. SVRs are set by each lender and are typically well above the rates on new fixed and tracker deals."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://very-good-studio.com/#org",
+      "name": "Very Good Studio",
+      "url": "https://very-good-studio.com/"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="brandline">
+      <a class="brand" href="../">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-5.5h-5V21H5a1 1 0 0 1-1-1v-8.5Z" fill="#E8E6FF"/></svg>
+        </span>
+        Mortgage Save
+      </a>
+      <a class="store-link" href="https://apps.apple.com/app/id6467675017" rel="noopener">Get the iPhone app</a>
+    </div>
+    <div>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Overpayment calculator</a> › Fixed rate ending</nav>
+      <h1>Fixed rate ending calculator</h1>
+      <p class="lede">See what happens to your monthly payment when your fixed rate ends: on your lender’s standard variable rate, or on a new deal.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="calc">
+      <form class="panel inputs-panel" id="form" novalidate>
+        <h2>When your deal ends</h2>
+        <div class="inputs">
+          <div class="pair">
+            <div class="field" id="f-balance">
+              <label for="balance">Balance when the deal ends</label>
+              <div class="box"><span>£</span><input id="balance" name="balance" inputmode="decimal" autocomplete="off"></div>
+              <div class="err" id="e-balance"></div>
+            </div>
+            <div class="field" id="f-yearsLeft">
+              <label for="yearsLeft">Years left then</label>
+              <div class="box"><input id="yearsLeft" name="yearsLeft" inputmode="decimal" autocomplete="off"><span class="after">yrs</span></div>
+              <div class="err" id="e-yearsLeft"></div>
+            </div>
+          </div>
+          <div class="field" id="f-currentRate">
+              <label for="currentRate">Your current fixed rate</label>
+              <div class="box"><input id="currentRate" name="currentRate" inputmode="decimal" autocomplete="off"><span class="after">%</span></div>
+              <div class="err" id="e-currentRate"></div>
+            </div>
+          <div class="pair">
+            <div class="field" id="f-svr">
+              <label for="svr">Lender’s SVR</label>
+              <div class="box"><input id="svr" name="svr" inputmode="decimal" autocomplete="off"><span class="after">%</span></div>
+              <div class="err" id="e-svr"></div>
+            </div>
+            <div class="field" id="f-newRate">
+              <label for="newRate">New deal rate</label>
+              <div class="box"><input id="newRate" name="newRate" inputmode="decimal" autocomplete="off"><span class="after">%</span></div><div class="hint">A rate you’ve been offered or seen</div>
+              <div class="err" id="e-newRate"></div>
+            </div>
+          </div>
+          <div class="example-note"><span>Example figures. Change them to yours. They stay in this browser.</span></div>
+        </div>
+      </form>
+
+      <div class="results">
+        <section class="panel">
+          <h2>Your new payment</h2>
+          <div class="headline"><span class="k">On the standard variable rate</span><span class="v" id="h-svr">–</span><span class="s" id="h-sub"></span></div>
+          <div class="stats">
+            <div class="stat"><span class="k">Payment now</span><span class="v" id="s-now">–</span></div>
+            <div class="stat"><span class="k">On a new deal</span><span class="v" id="s-new">–</span></div>
+            <div class="stat"><span class="k">On the SVR</span><span class="v up" id="s-svr">–</span></div>
+          </div>
+        </section>
+        <section class="panel saving">
+          <h2>Cost of doing nothing</h2>
+          <div id="out"></div>
+        </section>
+
+        <section class="panel app">
+          <h2>Mortgage Save for iPhone</h2>
+          <p class="pitch">Get reminded months before your deal ends, so you never drift onto the SVR.</p>
+          <ul>
+            <li>Save scenarios and compare up to three side by side</li>
+            <li>A reminder before your deal reverts to the SVR</li>
+            <li>Full month-by-month schedule and PDF export</li>
+          </ul>
+          <a class="cta" href="https://apps.apple.com/app/id6467675017" rel="noopener">Download on the App Store</a>
+        </section>
+      </div>
+    </div>
+
+    <article class="article">
+      <h2>What happens when a fixed rate ends</h2>
+<p>When your fixed or tracker deal finishes, your lender moves you onto its standard variable rate (SVR) unless you’ve arranged something else. SVRs are usually several percentage points above the best deals, so the payment can jump by hundreds of pounds a month. This calculator works out the payment on the balance and term left, at each rate.</p>
+<h2>When to start looking</h2>
+<p>Most lenders let you choose a new deal with them (a product transfer) up to three to six months before your deal ends, and remortgage offers from other lenders usually last about six months. Starting early means you can lock in a rate and still switch if a better one turns up. Leaving it until after the deal ends means paying the SVR for every month it takes to arrange.</p>
+<h2>Stay with your lender or switch?</h2>
+<p>A product transfer is usually quicker, with no new affordability checks or valuation. Switching lender can get a lower rate but may come with legal and valuation work. Compare deals on the total cost over the fixed period, including arrangement fees, not just the rate.</p>
+<h2>Overpay before you remortgage</h2>
+<p>If your balance is close to a loan-to-value threshold (often 60%, 75%, 80% or 85%), overpaying before your deal ends can move you into a cheaper rate band. There’s usually no charge for overpaying once you’re on the SVR. The <a href="../">overpayment calculator</a> shows the effect.</p>
+      <h2>What happens if I do nothing when my fixed rate ends?</h2>
+<p>Your lender moves you to its standard variable rate. You can usually still move to a new deal afterwards, normally without an early repayment charge, but you pay the higher rate in the meantime.</p>
+<h2>How early can I lock in a new mortgage deal?</h2>
+<p>Most lenders let you choose a product transfer three to six months before your current deal ends, and many remortgage offers are valid for about six months.</p>
+<h2>Is the SVR always higher than a new fixed rate?</h2>
+<p>Almost always. SVRs are set by each lender and are typically well above the rates on new fixed and tracker deals.</p>
+
+    </article>
+
+    <nav class="related" aria-label="More calculators">
+      <h2>More mortgage calculators</h2>
+      <ul><li><a href="../">Mortgage overpayment calculator<span>Monthly overpayments across your deal and the SVR</span></a></li><li><a href="../lump-sum-overpayment-calculator/">Lump sum mortgage overpayment calculator<span>A one-off payment: interest and time saved</span></a></li><li><a href="../mortgage-overpayment-allowance-calculator/">How much can I overpay my mortgage?<span>Your 10% allowance and any charge over it</span></a></li><li><a href="../overpay-mortgage-or-save-calculator/">Overpay your mortgage or save?<span>Interest saved vs interest earned after tax</span></a></li></ul>
+    </nav>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Figures are estimates for guidance only and aren’t financial advice. Your lender’s statement is the final word. Interest is calculated monthly at the rates you enter.</span>
+    <span>Everything you type stays in your browser. Nothing is sent or stored. <a href="https://very-good-studio.com/apps/mortgage-save/privacy-policy.html">Privacy policy</a></span>
+  </div>
+</footer>
+
+<script type="module">
+import { setup, $, gbp0, gbp2, plain, duration, fullCalculatorLink } from '../guide.js';
+import { dealEnd } from '../tools.js';
+
+setup({
+  fields: {
+    balance: { min: 1000, max: 10000000, money: true },
+    yearsLeft: { min: 1, max: 50 },
+    currentRate: { min: 0, max: 25 },
+    svr: { min: 0, max: 25 },
+    newRate: { min: 0, max: 25 },
+  },
+  defaults: { balance: 180000, yearsLeft: 20, currentRate: 1.9, svr: 7.5, newRate: 4.4 },
+  showInvalid: () => { $('out').innerHTML = '<p class="empty-over">Check the figures marked in red.</p>'; },
+  render: (d) => {
+    const e = dealEnd({ balance: d.balance, yearsLeft: d.yearsLeft, currentRate: d.currentRate, svr: d.svr, newRate: d.newRate });
+    const sign = (x) => (x >= 0 ? '+' : '−') + gbp2.format(Math.abs(x));
+    $('h-svr').textContent = gbp2.format(e.svr);
+    $('h-sub').textContent = `${sign(e.svrJump)} a month compared with now, at ${plain(d.svr)}% over ${duration(e.months)}`;
+    $('s-now').textContent = gbp2.format(e.current);
+    $('s-new').textContent = gbp2.format(e.newDeal);
+    $('s-svr').textContent = gbp2.format(e.svr);
+    const full = fullCalculatorLink({ loan: d.balance, termYears: d.yearsLeft, dealRate: d.newRate, dealYears: Math.min(5, d.yearsLeft), svr: d.svr, overpayment: 0 });
+    $('out').innerHTML = e.svrVsNewPerYear > 0 ? `
+      <div class="saving-grid">
+        <div><div class="big">${gbp0.format(e.svrVsNewPerYear)}</div><div class="k">a year extra on the SVR</div></div>
+        <div><div class="big">${gbp0.format(e.svrVsNewPerYear / 12)}</div><div class="k">for every month you wait</div></div>
+      </div>
+      <p>That’s what staying on the ${plain(d.svr)}% SVR costs compared with a ${plain(d.newRate)}% deal. <a href="${full}">See this new deal in the overpayment calculator</a>.</p>
+      <p class="nudge">Don’t miss the date. <a href="https://apps.apple.com/app/id6467675017" rel="noopener">Mortgage Save for iPhone</a> reminds you before your deal ends.</p>` : `
+      <p class="empty-over">At these rates the new deal isn’t cheaper than the SVR. Check the rates you’ve entered.</p>`;
+  },
+});
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "3850486203cd40769943ba21bf3ae65b"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
