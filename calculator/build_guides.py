@@ -257,7 +257,7 @@ setup({
 # ---------- 2. Allowance ----------
 PAGES.append(dict(
   slug='mortgage-overpayment-allowance-calculator',
-  title='Mortgage Overpayment Allowance Calculator: the 10% Rule | Mortgage Save',
+  title='Overpayment Allowance Calculator: 10% Rule | Mortgage Save',
   desc='How much can you overpay your mortgage without a penalty? Work out your 10% overpayment allowance, what’s left this year, and the early repayment charge on anything over it.',
   h1='How much can I overpay my mortgage?',
   short='Your 10% allowance and any charge over it',
@@ -336,7 +336,7 @@ setup({
 # ---------- 3. Fixed rate ending ----------
 PAGES.append(dict(
   slug='fixed-rate-ending-calculator',
-  title='Fixed Rate Ending Calculator: Your Payment on the SVR vs a New Deal | Mortgage Save',
+  title='Fixed Rate Ending: SVR vs New Deal Calculator | Mortgage Save',
   desc='Is your fixed rate mortgage ending? See your new monthly payment on your lender’s standard variable rate, on a new deal, and what a year of doing nothing would cost.',
   h1='Fixed rate ending calculator',
   short='Your payment on the SVR vs a new deal',
@@ -490,7 +490,7 @@ setup({
 # ---------- 5. Stamp duty ----------
 PAGES.append(dict(
   slug='stamp-duty-calculator',
-  title='Stamp Duty Calculator England 2026: First-Time Buyers and Home Movers | Mortgage Save',
+  title='Stamp Duty Calculator England 2026 | Mortgage Save',
   desc='Free stamp duty calculator for England and Northern Ireland at the rates from 1 April 2025. First-time buyer relief, home movers, second homes and non-UK residents, with a band-by-band breakdown.',
   h1='Stamp duty calculator',
   short='England and NI, with first-time buyer relief',
@@ -559,7 +559,7 @@ setup({
 # ---------- 6. Loan to value ----------
 PAGES.append(dict(
   slug='loan-to-value-calculator',
-  title='Loan to Value (LTV) Calculator UK: Find Your Mortgage Rate Band | Mortgage Save',
+  title='Loan to Value (LTV) Calculator UK | Mortgage Save',
   desc='Work out your mortgage loan-to-value (LTV), which lender band it falls in, and how much you’d need to pay off to reach the next, cheaper band before you remortgage.',
   h1='Loan to value calculator',
   short='Your LTV band and the gap to the next one',
@@ -621,7 +621,7 @@ setup({
 # ---------- 7. Affordability ----------
 PAGES.append(dict(
   slug='how-much-can-i-borrow-calculator',
-  title='How Much Can I Borrow for a Mortgage? UK Income Multiple Calculator | Mortgage Save',
+  title='How Much Can I Borrow? UK Mortgage Calculator | Mortgage Save',
   desc='Estimate how much UK lenders may let you borrow from your income, at 4, 4.5 and 5.5 times salary, the price that buys with your deposit, and your loan to value.',
   h1='How much can I borrow?',
   short='A quick income-multiple estimate',
@@ -690,7 +690,7 @@ setup({
 # ---------- 8. 2 vs 5 year fix ----------
 PAGES.append(dict(
   slug='2-year-vs-5-year-fix-calculator',
-  title='2-Year vs 5-Year Fixed Mortgage Calculator: Which Costs Less? | Mortgage Save',
+  title='2-Year vs 5-Year Fixed Mortgage Calculator | Mortgage Save',
   desc='Compare a 2-year and a 5-year fixed rate mortgage over five years, including fees and the rate you might re-fix at, and find the break-even rate where they cost the same.',
   h1='2-year vs 5-year fix calculator',
   short='Which fix costs less, and the break-even rate',
@@ -766,7 +766,7 @@ setup({
 # ---------- 9. Leave a fix early ----------
 PAGES.append(dict(
   slug='leave-fixed-rate-early-calculator',
-  title='Should I Leave My Fixed Rate Early? Early Repayment Charge Calculator | Mortgage Save',
+  title='Leave a Fixed Rate Early? ERC Calculator | Mortgage Save',
   desc='Is it worth paying the early repayment charge to leave your fixed rate mortgage for a cheaper deal? Compare staying with leaving over the rest of your current deal.',
   h1='Should I leave my fixed rate early?',
   short='Is a cheaper deal worth the early repayment charge?',
