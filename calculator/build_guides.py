@@ -92,7 +92,7 @@ def page(p):
         </span>
         Mortgage Save
       </a>
-      <a class="store-link" href="{APP}" rel="noopener">Get the iPhone app</a>
+      <a class="store-link" href="{APP}" rel="noopener"><img src="../app-store-badge.svg" alt="Download on the App Store" width="120" height="40"></a>
     </div>
     <div>
       <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Overpayment calculator</a> › {p['crumb']}</nav>
@@ -120,7 +120,7 @@ def page(p):
           <h2>Mortgage Save for iPhone</h2>
           <p class="pitch">{p['pitch']}</p>
           <ul>{APP_FEATURES}</ul>
-          <a class="cta" href="{APP}" rel="noopener">Download on the App Store</a>
+          <a class="cta" href="{APP}" rel="noopener"><img src="../app-store-badge.svg" alt="Download Mortgage Save on the App Store" width="150" height="50" loading="lazy"></a>
         </section>
       </div>
     </div>

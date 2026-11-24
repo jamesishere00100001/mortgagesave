@@ -125,8 +125,9 @@ header.top .wrap { padding-block: 22px 72px; display: grid; gap: 28px; }
 .brandline { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .brand { display: flex; align-items: center; gap: 10px; font: 700 17px/1 var(--font-display); color: var(--brand-fg); text-decoration: none; }
 .brand-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(140deg, #6E6AF0, #3D39B8); display: grid; place-items: center; }
-.store-link { color: var(--brand-fg); font-size: 14px; opacity: .85; text-decoration: none; border: 1px solid rgba(232,230,255,.3); border-radius: 999px; padding: 7px 14px; }
-.store-link:hover { opacity: 1; border-color: rgba(232,230,255,.6); }
+.store-link { display: block; border-radius: 8px; }
+.store-link img { display: block; width: 120px; height: 40px; filter: invert(1); }
+.store-link:hover { opacity: .9; }
 h1 { font: 800 clamp(30px, 5vw, 46px)/1.08 var(--font-display); letter-spacing: -0.02em; margin: 0; text-wrap: balance; max-width: 18ch; }
 .lede { margin: 10px 0 0; max-width: 58ch; color: rgba(232,230,255,.72); font-size: 17px; }
 
@@ -198,8 +199,9 @@ tr.svr td:first-child::after { content: "SVR"; font-size: 10.5px; font-weight: 6
 .app .pitch { font: 700 22px/1.25 var(--font-display); margin: 0; text-wrap: balance; }
 .app ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: 15px; color: rgba(232,230,255,.85); }
 .app li::before { content: "✓"; color: #8E8BF5; font-weight: 700; margin-right: 10px; }
-.app .cta { justify-self: start; background: var(--brand-fg); color: var(--brand); font-weight: 700; text-decoration: none; padding: 12px 20px; border-radius: 12px; }
-.app .cta:hover { background: #fff; }
+.app .cta { justify-self: start; display: block; border-radius: 10px; }
+.app .cta img { display: block; width: 150px; height: 50px; filter: invert(1); }
+.app .cta:hover { opacity: .9; }
 
 .explain { margin-top: 40px; display: grid; gap: 26px; grid-template-columns: 1fr; }
 @media (min-width: 760px) { .explain { grid-template-columns: 1fr 1fr; } }
@@ -233,7 +235,7 @@ footer a { color: var(--muted); }
         </span>
         Mortgage Save
       </a>
-      <a class="store-link" href="https://apps.apple.com/app/id6467675017" rel="noopener">Get the iPhone app</a>
+      <a class="store-link" href="https://apps.apple.com/app/id6467675017" rel="noopener"><img src="app-store-badge.svg" alt="Download on the App Store" width="120" height="40"></a>
     </div>
     <div>
       <h1>Mortgage overpayment calculator</h1>
@@ -337,7 +339,7 @@ footer a { color: var(--muted); }
             <li>A reminder before your deal reverts to the SVR</li>
             <li>Full month-by-month schedule and PDF export</li>
           </ul>
-          <a class="cta" href="https://apps.apple.com/app/id6467675017" rel="noopener">Download on the App Store</a>
+          <a class="cta" href="https://apps.apple.com/app/id6467675017" rel="noopener"><img src="app-store-badge.svg" alt="Download Mortgage Save on the App Store" width="150" height="50" loading="lazy"></a>
         </section>
       </div>
     </div>
